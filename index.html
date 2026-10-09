@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veyra | Skincare Treatments Expert Advisory & Consultation Hub</title>
+    <meta name="description" content="Expert advisory and consultation for skincare treatments. Find your ideal treatment, meet experts, and book a consultation with Veyra.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.jpg" type="image/jpeg">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Veyra",
+      "url": "https://veyra-demo.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://veyra-demo.com/#treatments?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Veyra Clinic",
+      "url": "https://veyra-demo.com",
+      "logo": "https://veyra-demo.com/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-800-555-0199",
+        "contactType": "customer service"
+      }
+    }
+    </script>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo">Veyra<span>.</span></a>
+
+            <button class="menu-toggle" aria-label="Toggle Navigation" aria-expanded="false">
+                <i class="ph ph-list"></i>
+            </button>
+
+            <nav class="nav-links-wrapper" id="navMenu">
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#treatments">Treatments</a></li>
+                    <li class="dropdown">
+                        <a href="#" aria-haspopup="true" aria-expanded="false" class="dropdown-trigger">Tools <i class="ph ph-caret-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#finder">Skin-Concern Finder</a>
+                            <a href="#booking">Book Consultation</a>
+                            <a href="#aftercare">Aftercare Guide</a>
+                        </div>
+                    </li>
+                    <li><a href="#experts">Experts</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li class="mobile-only mobile-login"><a href="auth.html" class="btn btn-primary">Login <i class="ph ph-arrow-right"></i></a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="auth.html" class="btn btn-primary" id="authBtn">Login <i class="ph ph-arrow-right"></i></a>            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. Hero -->
+        <section id="home" class="hero" aria-labelledby="hero-heading">
+            <div class="container hero-grid">
+                <div class="hero-content reveal">
+                    <span class="eyebrow">Clinical skincare advisory</span>
+                    <h1 id="hero-heading">Precision skincare, <em>expertly</em> guided.</h1>
+                    <p class="hero-lead">Personalised treatment plans shaped around your skin, your goals and your lifestyle, led by clinicians who put honesty and safety first.</p>
+                    <div class="hero-actions">
+                        <a href="#booking" class="btn btn-primary">Book a consultation <i class="ph ph-arrow-right"></i></a>
+                        <a href="#finder" class="btn btn-secondary">Find your treatment</a>
+                    </div>
+                    <div class="hero-meta">
+                        <div><strong>12+</strong><span>Clinical treatments</span></div>
+                        <div><strong>4.9</strong><span>Average rating (demo)</span></div>
+                        <div><strong>1:1</strong><span>Expert-led plans</span></div>
+                    </div>
+                </div>
+                <div class="hero-visual reveal reveal-delay-1">
+                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=1100&q=80" alt="Woman receiving a relaxing facial treatment" class="hero-image">
+                    <div class="hero-float f1">
+                        <span class="float-icon"><i class="ph ph-shield-check"></i></span>
+                        <div><strong>Safety-first protocols</strong>Patch tested &amp; reviewed</div>
+                    </div>
+                    <div class="hero-float f2">
+                        <span class="float-icon"><i class="ph-fill ph-star"></i></span>
+                        <div><strong>Trusted advisors</strong>Experienced clinicians</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <span>Hydrafacials</span><span>Chemical peels</span><span>Laser resurfacing</span><span>Microneedling</span><span>Barrier repair</span><span>Pigment correction</span><span>Anti-aging</span>
+                <span>Hydrafacials</span><span>Chemical peels</span><span>Laser resurfacing</span><span>Microneedling</span><span>Barrier repair</span><span>Pigment correction</span><span>Anti-aging</span>
+            </div>
+        </div>
+
+        <!-- 2. About -->
+        <section id="about" aria-labelledby="about-heading">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="eyebrow">Our philosophy</span>
+                    <h2 id="about-heading">Honest advice. <em>Clinical</em> care.</h2>
+                    <p>Every recommendation starts with your skin, not a sales script.</p>
+                </div>
+                <div class="feature-grid">
+                    <div class="card card-hover feature-card reveal">
+                        <span class="num">01</span>
+                        <span class="icon-wrap"><i class="ph ph-stethoscope"></i></span>
+                        <h3>Clinical expertise</h3>
+                        <p>Every consultation is guided by experienced professionals to ensure treatments are safe and suitable for your profile.</p>
+                    </div>
+                    <div class="card card-hover feature-card reveal reveal-delay-1">
+                        <span class="num">02</span>
+                        <span class="icon-wrap"><i class="ph ph-shield-check"></i></span>
+                        <h3>Safety first</h3>
+                        <p>Clear guidance on downtime, side effects, and when a treatment might not be right for you.</p>
+                    </div>
+                    <div class="card card-hover feature-card reveal reveal-delay-2">
+                        <span class="num">03</span>
+                        <span class="icon-wrap"><i class="ph ph-sparkle"></i></span>
+                        <h3>Honest expectations</h3>
+                        <p>No exaggerated claims or guaranteed cures. Just transparent, evidence-based approaches to healthier skin.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Services -->
+        <section id="services" class="section-alt" aria-labelledby="services-heading">
+            <div class="container services-grid">
+                <div class="reveal">
+                    <span class="eyebrow">Consultation services</span>
+                    <h2 id="services-heading">A considered path to <em>your</em> best skin.</h2>
+                    <p class="text-light" style="font-size: 1.0625rem; max-width: 520px; margin-top: 16px;">Comprehensive advisory to plan every stage of your treatment journey, in clinic or from home.</p>
+                    <ul class="step-list">
+                        <li><span class="step-icon"><i class="ph ph-user-focus"></i></span><div><strong>In-clinic assessment</strong><p>A thorough examination of your skin barrier and concerns.</p></div></li>
+                        <li><span class="step-icon"><i class="ph ph-video-camera"></i></span><div><strong>Video advisory</strong><p>Convenient remote consultation for routine reviews or initial guidance.</p></div></li>
+                        <li><span class="step-icon"><i class="ph ph-arrows-clockwise"></i></span><div><strong>Follow-up care</strong><p>Post-treatment monitoring to ensure optimal recovery and results.</p></div></li>
+                    </ul>
+                </div>
+                <div class="card info-card reveal reveal-delay-1">
+                    <span class="eyebrow">Good to know</span>
+                    <h3>Before your first visit</h3>
+                    <div class="info-row"><span>First visit</span><span>History review &amp; patch test if required</span></div>
+                    <div class="info-row"><span>Pricing (demo)</span><span>$80 – $450</span></div>
+                    <div class="info-row"><span>Cancellations</span><span>24 hours notice</span></div>
+                    <div class="privacy"><i class="ph ph-lock-key"></i> Privacy first. Your data stays secure.</div>
+                    <a href="#booking" class="btn btn-light mt-4" style="position: relative; z-index: 1;">Plan my consultation <i class="ph ph-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Treatments -->
+        <section id="treatments" aria-labelledby="treatments-heading">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="eyebrow">The menu</span>
+                    <h2 id="treatments-heading">Clinical <em>treatments</em></h2>
+                    <p>A curated range of specialised skincare solutions, each with transparent downtime and pricing.</p>
+                </div>
+
+                <div class="treatments-controls reveal">
+                    <div class="tabs-nav" id="treatmentTabs">
+                        <button class="tab-btn active" data-filter="all">All</button>
+                        <button class="tab-btn" data-filter="facials">Facials</button>
+                        <button class="tab-btn" data-filter="peels">Peels</button>
+                        <button class="tab-btn" data-filter="laser">Laser</button>
+                        <button class="tab-btn" data-filter="anti-aging">Anti-Aging</button>
+                    </div>
+                    <div class="treatments-search">
+                        <div class="search-field">
+                            <i class="ph ph-magnifying-glass"></i>
+                            <input type="text" id="treatmentSearch" placeholder="Search treatments" aria-label="Search treatments">
+                        </div>
+                        <select id="treatmentSort" aria-label="Sort treatments">
+                            <option value="featured">Featured</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="duration">Duration</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="treatmentsGrid" class="treatments-grid">
+                    <!-- Populated by JS -->
+                </div>
+
+                <div id="treatmentsEmpty" class="text-center" style="display: none; padding: var(--space-6) 0;">
+                    <p class="text-light" style="margin-bottom: var(--space-3);">No treatments match your criteria.</p>
+                    <button class="btn btn-outline" id="resetTreatmentsBtn">Reset filters</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Skin-Concern Finder -->
+        <section id="finder" class="section-alt" aria-labelledby="finder-heading">
+            <div class="container reveal">
+                <div class="section-header">
+                    <span class="eyebrow">Skin-concern finder</span>
+                    <h2 id="finder-heading">Not sure where to <em>begin?</em></h2>
+                    <p>Answer three quick questions and we'll suggest treatments suited to your profile.</p>
+                </div>
+
+                <div class="card finder-card">
+                    <div id="finderProgress" class="finder-progress">
+                        <div id="finderProgressBar"></div>
+                    </div>
+
+                    <div id="finderQuestions">
+                        <!-- Step 1 -->
+                        <div class="finder-step active" data-step="1">
+                            <span class="eyebrow">Question 1 of 3</span>
+                            <h3>What is your primary skin concern?</h3>
+                            <div class="options-grid">
+                                <div class="option-card" data-value="acne">Acne &amp; Breakouts</div>
+                                <div class="option-card" data-value="dark spots">Dark Spots &amp; Pigment</div>
+                                <div class="option-card" data-value="fine lines">Fine Lines</div>
+                                <div class="option-card" data-value="dullness">Dullness</div>
+                                <div class="option-card" data-value="redness">Redness</div>
+                                <div class="option-card" data-value="dryness">Dryness</div>
+                                <div class="option-card" data-value="uneven texture">Uneven Texture</div>
+                            </div>
+                            <div class="error-msg" id="finderErr1">Please select an option.</div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="finder-step" data-step="2">
+                            <span class="eyebrow">Question 2 of 3</span>
+                            <h3>What is your skin type?</h3>
+                            <div class="options-grid">
+                                <div class="option-card" data-value="dry">Dry</div>
+                                <div class="option-card" data-value="oily">Oily</div>
+                                <div class="option-card" data-value="combination">Combination</div>
+                                <div class="option-card" data-value="sensitive">Sensitive</div>
+                                <div class="option-card" data-value="normal">Normal</div>
+                            </div>
+                            <div class="error-msg" id="finderErr2">Please select an option.</div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="finder-step" data-step="3">
+                            <span class="eyebrow">Question 3 of 3</span>
+                            <h3>What is your downtime tolerance?</h3>
+                            <div class="options-grid">
+                                <div class="option-card" data-value="none">None (immediate glow)</div>
+                                <div class="option-card" data-value="moderate">Moderate (some peeling or redness)</div>
+                            </div>
+                            <div class="error-msg" id="finderErr3">Please select an option.</div>
+                        </div>
+                    </div>
+
+                    <div id="finderResults" style="display: none;">
+                        <h3 style="margin-bottom: var(--space-4); text-align: center; font-weight: 300;">Your suggested guidance</h3>
+                        <div id="finderSuggestions" class="grid" style="grid-template-columns: 1fr; gap: var(--space-3);"></div>
+                        <p class="disclaimer text-center mt-4" style="margin-bottom: var(--space-4);">This is a general guide only and not a medical diagnosis. A professional consultation is required to confirm suitability.</p>
+                    </div>
+
+                    <div class="flex justify-between" style="margin-top: var(--space-5);">
+                        <button class="btn btn-outline" id="finderPrev" style="visibility: hidden;"><i class="ph ph-arrow-left"></i> Back</button>
+                        <button class="btn btn-primary" id="finderNext">Continue</button>
+                        <button class="btn btn-outline" id="finderRestart" style="display: none;">Start over</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Book Consultation -->
+        <section id="booking" aria-labelledby="booking-heading">
+            <div class="container reveal">
+                <div class="section-header">
+                    <span class="eyebrow">Reserve your time</span>
+                    <h2 id="booking-heading">Book a <em>consultation</em></h2>
+                    <p>Schedule dedicated, unhurried time with one of our experts.</p>
+                </div>
+
+                <div id="bookingGuestState" class="text-center card" style="max-width: 560px; margin: 0 auto; display: none;">
+                    <span class="icon-wrap" style="width: 64px; height: 64px; border-radius: 50%; background: var(--clr-primary-soft); color: var(--clr-primary); display: grid; place-items: center; font-size: 1.75rem; margin: 0 auto var(--space-4);"><i class="ph ph-lock-key"></i></span>
+                    <h3 class="mb-2">Sign in to book</h3>
+                    <p class="text-light mb-4">Log in or create an account to schedule an appointment and manage your bookings.</p>
+                    <a href="auth.html" class="btn btn-primary" id="bookingLoginBtn">Log in to book <i class="ph ph-arrow-right"></i></a>
+                </div>
+
+                <div id="bookingAuthArea" style="display: none;">
+                    <div class="booking-layout">
+
+                        <!-- My Bookings Panel -->
+                        <div class="card">
+                            <h3 style="margin-bottom: var(--space-4);">My bookings</h3>
+                            <div id="myBookingsList">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+
+                        <!-- Booking Flow -->
+                        <div class="card">
+                            <div class="flex justify-between items-center" style="margin-bottom: var(--space-4); border-bottom: 1px solid var(--clr-border); padding-bottom: var(--space-3);">
+                                <h3 id="bookingStepTitle">1. Select Treatment</h3>
+                                <span class="badge" style="margin: 0;">Step <span id="bookingStepCount">1</span> of 4</span>
+                            </div>
+
+                            <div id="bookingSteps">
+                                <!-- Step 1: Treatment -->
+                                <div class="booking-step active" data-step="1">
+                                    <div class="form-group">
+                                        <label for="b_treatment">Preferred treatment (optional)</label>
+                                        <select id="b_treatment">
+                                            <option value="">Not sure, advise me</option>
+                                            <!-- Populated by JS -->
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="b_mode">Consultation mode</label>
+                                        <select id="b_mode">
+                                            <option value="in-clinic">In-Clinic</option>
+                                            <option value="video">Video Consultation (Demo)</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Step 2: Expert & Date -->
+                                <div class="booking-step" data-step="2" style="display: none;">
+                                    <div class="form-group">
+                                        <label for="b_expert">Select expert</label>
+                                        <select id="b_expert">
+                                            <option value="">Any available</option>
+                                            <!-- Populated by JS -->
+                                        </select>
+                                    </div>
+
+                                    <div class="calendar-wrapper mt-4">
+                                        <label>Select date</label>
+                                        <div class="calendar-header">
+                                            <button type="button" id="calPrev" class="btn btn-outline" aria-label="Previous month"><i class="ph ph-caret-left"></i></button>
+                                            <span id="calMonthYear" style="font-family: var(--font-h); font-size: 1.15rem;"></span>
+                                            <button type="button" id="calNext" class="btn btn-outline" aria-label="Next month"><i class="ph ph-caret-right"></i></button>
+                                        </div>
+                                        <div class="calendar-grid" id="calGrid"></div>
+                                    </div>
+
+                                    <div class="time-slots-wrapper mt-4" style="display: none;">
+                                        <label>Select time</label>
+                                        <div id="timeSlots" class="time-slots"></div>
+                                    </div>
+                                    <div class="error-msg" id="b_err_date">Please select a date and time.</div>
+                                </div>
+
+                                <!-- Step 3: Details -->
+                                <div class="booking-step" data-step="3" style="display: none;">
+                                    <div class="form-group">
+                                        <label for="b_phone">Phone number</label>
+                                        <input type="tel" id="b_phone" placeholder="e.g. 555-0199">
+                                        <div class="error-msg">Please enter a valid phone number.</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="b_note">Short note (optional)</label>
+                                        <textarea id="b_note" rows="3" maxlength="200" placeholder="Briefly describe your main concern..."></textarea>
+                                        <div class="text-light" style="font-size: 0.75rem; text-align: right;"><span id="b_note_count">0</span>/200</div>
+                                    </div>
+                                    <p class="disclaimer mb-3" style="color: var(--clr-error);">Privacy note: do not enter sensitive medical records here.</p>
+
+                                    <div class="form-group flex items-center" style="gap: var(--space-2);">
+                                        <input type="checkbox" id="b_consent">
+                                        <label for="b_consent" style="margin: 0; font-weight: 400;">I consent to the demo booking terms (this is not a real appointment).</label>
+                                    </div>
+                                    <div class="error-msg" id="b_err_consent">You must consent to continue.</div>
+                                </div>
+
+                                <!-- Step 4: Review -->
+                                <div class="booking-step" data-step="4" style="display: none;">
+                                    <div style="background: var(--clr-surface-alt); padding: var(--space-4); border-radius: var(--radius-sm); display: grid; gap: 10px;">
+                                        <p><span class="text-light">Treatment</span><br><strong id="r_treatment"></strong></p>
+                                        <p><span class="text-light">Expert</span><br><strong id="r_expert"></strong></p>
+                                        <p><span class="text-light">Mode</span><br><strong id="r_mode"></strong></p>
+                                        <p><span class="text-light">Date &amp; time</span><br><strong id="r_datetime"></strong></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="bookingConfirmation" class="text-center" style="display: none; padding: var(--space-6) 0;">
+                                <i class="ph-fill ph-check-circle" style="font-size: 4rem; color: var(--clr-success); margin-bottom: 16px; display: inline-block;"></i>
+                                <h3 class="mb-2">Booking confirmed</h3>
+                                <p class="mb-4">Your demo reference: <strong id="conf_ref" class="tabular-nums"></strong></p>
+                                <button class="btn btn-outline" id="btnAddToCal"><i class="ph ph-calendar-plus"></i> Add to calendar</button>
+                                <button class="btn btn-primary ml-2" id="btnBookAnother">Book another</button>
+                            </div>
+
+                            <div class="flex justify-between" id="bookingControls" style="margin-top: var(--space-5);">
+                                <button class="btn btn-outline" id="b_prev" style="visibility: hidden;">Back</button>
+                                <button class="btn btn-primary" id="b_next">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="disclaimer text-center mt-6">Informational demo content, not medical advice. Fictional experts and availability.</p>
+            </div>
+        </section>
+
+        <!-- 9. Aftercare Guide -->
+        <section id="aftercare" class="section-alt" aria-labelledby="aftercare-heading">
+            <div class="container reveal">
+                <div class="section-header">
+                    <span class="eyebrow">Aftercare</span>
+                    <h2 id="aftercare-heading">Protect your <em>results</em></h2>
+                    <p>Essential steps to care for your skin after treatment.</p>
+                </div>
+
+                <div class="card" style="max-width: 920px; margin: 0 auto; text-align: left; align-items: stretch;">
+                    <div class="flex justify-between items-center flex-wrap" style="margin-bottom: var(--space-4); gap: var(--space-3);">
+                        <div class="tabs-nav m-0" id="aftercareTabs" style="margin-bottom: 0;">
+                            <button class="tab-btn active" data-target="ac_general">General Care</button>
+                            <button class="tab-btn" data-target="ac_peels">Post-Peel</button>
+                            <button class="tab-btn" data-target="ac_laser">Post-Laser</button>
+                        </div>
+                        <button class="btn btn-outline" onclick="window.print()" style="padding: 10px 18px; font-size: 0.875rem;"><i class="ph ph-printer"></i> Print</button>
+                    </div>
+
+                    <div class="tab-content aftercare-print-only">
+                        <div id="ac_general" class="tab-pane active">
+                            <h3 class="mb-4">General post-treatment timeline</h3>
+                            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-4);">
+                                <div>
+                                    <h4 class="text-primary">Day 0 <span class="text-light text-sm">· treatment day</span></h4>
+                                    <p class="text-sm text-light mb-3 mt-1">Avoid touching face, sweating, or applying makeup.</p>
+                                    <h4 class="text-primary">Day 1–3</h4>
+                                    <p class="text-sm text-light mt-1">Use gentle cleanser and provided barrier cream. Strict SPF.</p>
+                                </div>
+                                <div>
+                                    <h4 class="text-primary">Week 1+</h4>
+                                    <p class="text-sm text-light mb-3 mt-1">Gradually reintroduce active ingredients as advised.</p>
+                                    <div style="background: #fbefeb; border: 1px solid #f0d6cd; padding: var(--space-3); border-radius: var(--radius-sm);">
+                                        <h4 style="color: var(--clr-error);" class="flex items-center gap-2"><i class="ph ph-warning-circle"></i> Warning signs</h4>
+                                        <p class="text-sm mt-1">Contact the clinic if you experience severe pain, spreading redness, blistering, or signs of infection.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h4 style="margin: var(--space-5) 0 var(--space-3);">Your daily checklist</h4>
+                            <div class="flex flex-col gap-2 checklist" id="acChecklist">
+                                <label class="flex items-center gap-2" style="font-weight: 400; font-size: 0.9375rem;"><input type="checkbox" value="spf"> Apply SPF 50+ every 2 hours outdoors</label>
+                                <label class="flex items-center gap-2" style="font-weight: 400; font-size: 0.9375rem;"><input type="checkbox" value="cleanse"> Gentle cleanse morning and night</label>
+                                <label class="flex items-center gap-2" style="font-weight: 400; font-size: 0.9375rem;"><input type="checkbox" value="hydrate"> Apply prescribed hydration serum</label>
+                            </div>
+                        </div>
+
+                        <div id="ac_peels" class="tab-pane">
+                            <h3 class="mb-4">Chemical peel aftercare</h3>
+                            <p class="text-light">Crucial: do not pick, peel, or scrub shedding skin. Allow it to flake naturally to prevent scarring.</p>
+                            <ul class="mt-3 text-light" style="margin-left: 20px;">
+                                <li>Use only cool water to wash.</li>
+                                <li>Avoid excessive heat (saunas, hot yoga) for 7 days.</li>
+                            </ul>
+                        </div>
+
+                        <div id="ac_laser" class="tab-pane">
+                            <h3 class="mb-4">Laser treatment aftercare</h3>
+                            <p class="text-light">Skin may feel like a mild sunburn. Cool compresses are acceptable.</p>
+                            <ul class="mt-3 text-light" style="margin-left: 20px;">
+                                <li>Strict sun avoidance for 2–4 weeks post-treatment.</li>
+                                <li>Avoid active skincare (retinols, AHAs) until cleared by your expert.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Expert Profiles -->
+        <section id="experts" aria-labelledby="experts-heading">
+            <div class="container">
+                <div class="flex justify-between items-end flex-wrap reveal" style="margin-bottom: var(--space-6);">
+                    <div style="max-width: 620px;">
+                        <span class="eyebrow">The specialists</span>
+                        <h2 id="experts-heading">Meet our <em>experts</em></h2>
+                        <p class="text-light mt-3" style="font-size: 1.125rem;">The professionals dedicated to your skin's long-term health.</p>
+                    </div>
+                    <select id="expertSpecialtyFilter" aria-label="Filter by specialty" style="width: auto; min-width: 220px; border-radius: var(--radius-pill);">
+                        <option value="all">All Specialties</option>
+                    </select>
+                </div>
+
+                <div id="expertsGrid" class="experts-grid reveal">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Before/After Gallery -->
+        <section id="results" class="section-alt" aria-labelledby="gallery-heading">
+            <div class="container reveal">
+                <div class="section-header">
+                    <span class="eyebrow">Results</span>
+                    <h2 id="gallery-heading">Clinical <em>outcomes</em></h2>
+                    <p>Drag to compare illustrative examples of treatment progress.</p>
+                </div>
+
+                <div class="flex justify-center" style="margin-bottom: var(--space-5);">
+                    <select id="galleryFilter" aria-label="Filter gallery" style="width: auto; min-width: 220px; border-radius: var(--radius-pill);">
+                        <option value="all">All Categories</option>
+                        <option value="anti-aging">Anti-Aging</option>
+                        <option value="peels">Peels</option>
+                    </select>
+                </div>
+
+                <div id="galleryContainer" class="flex flex-col items-center gap-6">
+                    <!-- Populated by JS -->
+                </div>
+                <p class="disclaimer text-center mt-6">Illustrative demo images. Individual results vary. Not a guarantee of outcomes.</p>
+            </div>
+        </section>
+
+        <!-- 10. Testimonials -->
+        <section id="testimonials" aria-labelledby="testimonials-heading">
+            <div class="container reveal">
+                <div class="section-header">
+                    <span class="eyebrow">Kind words</span>
+                    <h2 id="testimonials-heading">Client <em>experiences</em></h2>
+                    <p>Placeholder reviews from our demo clients.</p>
+                </div>
+
+                <div id="testimonialsGrid" class="experts-grid">
+                    <!-- Populated by JS -->
+                </div>
+                <p class="disclaimer text-center mt-6">Reviews and ratings are fictional demo data.</p>
+            </div>
+        </section>
+
+        <!-- 11. FAQ -->
+        <section id="faq" class="section-alt" aria-labelledby="faq-heading">
+            <div class="container reveal">
+                <div class="section-header">
+                    <span class="eyebrow">FAQ</span>
+                    <h2 id="faq-heading">Questions, <em>answered</em></h2>
+                </div>
+
+                <div class="faq-list">
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">What should I expect during my first visit?</button>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                Your first visit includes a comprehensive skin assessment, medical history review, and a discussion of your goals. We may perform a patch test depending on the planned treatment.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">Are treatments safe during pregnancy?</button>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                Many treatments are contraindicated during pregnancy. Always ask your clinician. We offer a modified, pregnancy-safe facial line.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">How does pricing and cancellation work?</button>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                Prices listed are demo placeholders. A 24-hour notice is required for cancellations to avoid a fee.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">How do demo accounts work here?</button>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                This is a demo application. Data is stored in your browser's localStorage. Do not use real passwords or enter real personal medical information.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. Contact / CTA -->
+        <section id="contact" aria-labelledby="contact-heading">
+            <div class="container reveal">
+                <div class="cta-band">
+                    <div class="cta-grid">
+                        <div>
+                            <span class="eyebrow">Get in touch</span>
+                            <h2 id="contact-heading">Ready to begin your <em>skin journey?</em></h2>
+                            <p class="mt-3" style="color: #a9b0ab; font-size: 1.0625rem; max-width: 460px;">Our experts are here to guide you. Reach out with questions or book directly.</p>
+
+                            <div class="contact-list">
+                                <div><i class="ph ph-map-pin"></i><span>123 Clinic Way, Suite 400 (Demo)</span></div>
+                                <div><i class="ph ph-phone"></i><span>+1-800-555-0199</span></div>
+                                <div><i class="ph ph-clock"></i><span>Mon – Sat, 9:00 AM – 6:00 PM</span></div>
+                            </div>
+
+                            <a href="#booking" class="btn btn-light">Book consultation <i class="ph ph-arrow-right"></i></a>
+
+                            <div class="follow-us">
+                                <span>Follow us</span>
+                                <div class="social-links social-dark">
+                                    <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                                    <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+                                    <a href="#" aria-label="TikTok"><i class="ph ph-tiktok-logo"></i></a>
+                                    <a href="#" aria-label="YouTube"><i class="ph ph-youtube-logo"></i></a>
+                                    <a href="#" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="mb-4">Send an inquiry</h3>
+                            <!-- Formspree placeholder -->
+                            <form id="contactForm" onsubmit="event.preventDefault(); alert('Message sent (Demo)'); this.reset();">
+                                <div class="form-group">
+                                    <label for="c_name">Name</label>
+                                    <input type="text" id="c_name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="c_email">Email</label>
+                                    <input type="email" id="c_email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="c_message">Message</label>
+                                    <textarea id="c_message" rows="4" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Send message</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="contact-map">
+                        <iframe title="Veyra clinic location map (demo)" src="https://www.openstreetmap.org/export/embed.html?bbox=-74.0135%2C40.7020%2C-73.9935%2C40.7160&amp;layer=mapnik&amp;marker=40.7090%2C-74.0035" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#home" class="logo" style="margin-bottom: var(--space-3);">Veyra<span>.</span></a>
+                    <p class="text-light" style="max-width: 340px;">Expert clinical skincare advisory. Thoughtful plans, honest guidance.</p>
+                    <!-- Mailchimp placeholder -->
+                    <form class="newsletter" onsubmit="event.preventDefault(); alert('Subscribed (Demo)');">
+                        <input type="email" placeholder="Your email for our journal" required aria-label="Email for newsletter">
+                        <button class="btn btn-primary" aria-label="Subscribe">Subscribe</button>
+                    </form>
+                    <div class="social-links" style="margin-top: var(--space-4);">
+                        <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="ph ph-tiktok-logo"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="ph ph-youtube-logo"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#treatments">Treatments</a></li>
+                        <li><a href="#experts">Experts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#finder">Skin-Concern Finder</a></li>
+                        <li><a href="#booking">Book Consultation</a></li>
+                        <li><a href="#aftercare">Aftercare Guide</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-wordmark" aria-hidden="true">Veyra</div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Veyra Clinic Demo. All rights reserved.</p>
+                <p class="disclaimer">Veyra is a demo brand. Treatments, prices, experts, credentials, results, and bookings are placeholder data. Informational content only, not medical advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button id="backToTop" aria-label="Back to top">
+        <i class="ph ph-arrow-up"></i>
+    </button>
+
+    <!-- Modals -->
+    <!-- Treatment Modal -->
+    <div class="modal-overlay" id="treatmentModal" aria-modal="true" role="dialog" aria-labelledby="tmTitle">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-grid">
+                <img src="" id="tmImage" alt="" style="width: 100%; border-radius: var(--radius-sm); aspect-ratio: 4 / 3; object-fit: cover;">
+                <div>
+                    <span id="tmCategory" class="badge"></span>
+                    <h2 id="tmTitle" class="mb-2" style="margin-bottom: var(--space-2);"></h2>
+                    <p id="tmShortDesc" class="text-light mb-4"></p>
+                    <div class="flex gap-4 text-sm font-medium" style="margin-bottom: var(--space-4);">
+                        <span class="flex items-center gap-1"><i class="ph ph-clock"></i> <span id="tmDuration" class="tabular-nums"></span> min</span>
+                        <span class="flex items-center gap-1"><i class="ph ph-currency-dollar"></i> <span id="tmPrice" class="tabular-nums"></span> (Demo)</span>
+                        <span class="flex items-center gap-1"><i class="ph ph-bandaids"></i> Downtime: <span id="tmDowntime"></span></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tabs-nav mt-6" id="tmTabs" style="margin-top: var(--space-6);">
+                <button class="tab-btn active" data-target="tmOverview">Overview</button>
+                <button class="tab-btn" data-target="tmExpect">What to expect</button>
+                <button class="tab-btn" data-target="tmConsider">Considerations</button>
+                <button class="tab-btn" data-target="tmExpertsTab">Experts</button>
+            </div>
+            
+            <div id="tmOverview" class="tab-pane active">
+                <p id="tmLongDesc"></p>
+                <h4 class="mt-4 mb-2">Suitable for:</h4>
+                <p id="tmSuitable"></p>
+            </div>
+            
+            <div id="tmExpect" class="tab-pane">
+                <h4 class="mb-2">Sensation & Steps</h4>
+                <p>Treatment steps vary. Your expert will guide you through cleansing, active application, and soothing protocols.</p>
+                <h4 class="mt-4 mb-2">Possible Side Effects</h4>
+                <p id="tmSideEffects"></p>
+            </div>
+            
+            <div id="tmConsider" class="tab-pane">
+                <div class="bg-surface-alt p-4 border rounded" style="background: var(--clr-surface-alt); padding: var(--space-4); border: 1px solid var(--clr-border); border-radius: var(--radius-sm);">
+                    <h4 class="text-error flex items-center gap-2 mb-2" style="color: var(--clr-error);"><i class="ph ph-warning-circle"></i> Important Considerations</h4>
+                    <p id="tmConsiderations"></p>
+                    <p class="mt-2 text-sm text-light">Always consult a professional before beginning a new clinical treatment regimen.</p>
+                </div>
+            </div>
+
+            <div id="tmExpertsTab" class="tab-pane">
+                <p class="mb-4">The following experts offer this treatment:</p>
+                <div id="tmExpertList" class="flex flex-col gap-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Expert Modal -->
+    <div class="modal-overlay" id="expertModal" aria-modal="true" role="dialog" aria-labelledby="emTitle">
+        <div class="modal-content" style="max-width: 600px;">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="text-center mb-6">
+                <img src="" id="emImage" alt="" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: var(--space-3);">
+                <h2 id="emTitle"></h2>
+                <p id="emRole" class="text-primary font-medium" style="color: var(--clr-primary);"></p>
+                <p id="emCredentials" class="text-light text-sm"></p>
+            </div>
+            
+            <div class="grid" style="grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-bottom: var(--space-6); padding: var(--space-4); background: var(--clr-surface-alt); border-radius: var(--radius-sm);">
+                <div>
+                    <strong>Experience:</strong> <span id="emYears" class="tabular-nums"></span> Years
+                </div>
+                <div>
+                    <strong>Languages:</strong> <span id="emLanguages"></span>
+                </div>
+                <div style="grid-column: 1 / -1;">
+                    <strong>Specialties:</strong> <span id="emSpecialties"></span>
+                </div>
+            </div>
+            
+            <h4 class="mb-2">About</h4>
+            <p id="emBio" class="mb-6"></p>
+            
+            <h4 class="mb-2">Treatments Offered</h4>
+            <ul id="emTreatments" style="margin-left: 20px; margin-bottom: var(--space-6); color: var(--clr-text-light);"></ul>
+            
+            <div class="text-center">
+                <button class="btn btn-primary w-100" id="btnBookExpert" style="width: 100%;">Book with this expert</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="assets/js/data.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/auth.js"></script>
+    <script type="module" src="assets/js/treatments.js"></script>
+    <script type="module" src="assets/js/finder.js"></script>
+    <script type="module" src="assets/js/experts.js"></script>
+    <script type="module" src="assets/js/booking.js"></script>
+    <script type="module" src="assets/js/gallery.js"></script>
+    <script type="module" src="assets/js/aftercare.js"></script>
+</body>
+</html>

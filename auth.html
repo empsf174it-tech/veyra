@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication | Veyra</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.jpg" type="image/jpeg">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        body { min-height: 100dvh; display: grid; grid-template-columns: 1fr 1fr; background: var(--clr-bg); }
+        .auth-main { display: flex; flex-direction: column; padding: var(--space-4) var(--container-px); }
+        .auth-top { display: flex; justify-content: space-between; align-items: center; }
+        .auth-top a.back { color: var(--clr-text-light); text-decoration: none; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 6px; }
+        .auth-top a.back:hover { color: var(--clr-text); }
+        .auth-card { width: 100%; max-width: 420px; margin: auto; padding: var(--space-6) 0; }
+        .auth-card h1 { font-size: clamp(2.25rem, 4vw, 3rem); margin-bottom: 8px; }
+        .auth-tabs { display: flex; padding: 5px; gap: 4px; margin: var(--space-5) 0; background: var(--clr-surface-alt); border: 1px solid var(--clr-border); border-radius: var(--radius-pill); }
+        .auth-tab { flex: 1; background: none; border: none; padding: 10px; border-radius: var(--radius-pill); font-family: var(--font-body); font-size: 0.9rem; font-weight: 500; color: var(--clr-text-light); cursor: pointer; transition: var(--transition); }
+        .auth-tab.active { background: var(--clr-surface); color: var(--clr-text); box-shadow: var(--shadow); }
+        .auth-pane { display: none; }
+        .auth-pane.active { display: block; animation: fadeIn 0.5s var(--ease); }
+        .secure-badge { display: flex; align-items: center; justify-content: center; gap: 6px; color: var(--clr-text-light); font-size: 0.75rem; margin-top: var(--space-5); }
+        .social-btn { width: 100%; display: flex; align-items: center; justify-content: center; gap: var(--space-2); padding: 13px; border: 1px solid var(--clr-border); border-radius: var(--radius-pill); background: var(--clr-surface); cursor: pointer; margin-bottom: 10px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 500; color: var(--clr-text); transition: var(--transition); }
+        .social-btn:hover { border-color: var(--clr-text); }
+        .divider { display: flex; align-items: center; margin: var(--space-4) 0; color: var(--clr-text-light); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; }
+        .divider::before, .divider::after { content: ''; flex: 1; border-bottom: 1px solid var(--clr-border); }
+        .divider::before { margin-right: 14px; }
+        .divider::after { margin-left: 14px; }
+        .auth-visual { position: relative; margin: 12px; border-radius: 28px; overflow: hidden; background: var(--clr-ink); }
+        .auth-visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.85; }
+        .auth-visual::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(20,24,22,0.85)); }
+        .auth-quote { position: absolute; left: 0; right: 0; bottom: 0; padding: clamp(32px, 4vw, 56px); color: #fff; z-index: 1; }
+        .auth-quote p { font-family: var(--font-h); font-weight: 300; font-size: clamp(1.5rem, 2.4vw, 2.25rem); line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 16px; }
+        .auth-quote span { font-size: 0.8125rem; color: rgba(255,255,255,0.7); }
+        .password-wrapper { position: relative; }
+        .password-wrapper input { padding-right: 52px; }
+        .password-toggle { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border: none; background: none; border-radius: 50%; color: var(--clr-text-light); font-size: 1.15rem; cursor: pointer; display: grid; place-items: center; transition: var(--transition); }
+        .password-toggle:hover { color: var(--clr-text); background: var(--clr-surface-alt); }
+        @media (max-width: 900px) { body { grid-template-columns: 1fr; } .auth-visual { display: none; } }
+    </style>
+</head>
+<body>
+
+    <div class="auth-main">
+        <div class="auth-top">
+            <a href="index.html" class="logo">Veyra<span>.</span></a>
+            <a href="index.html" class="back"><i class="ph ph-arrow-left"></i> Back to site</a>
+        </div>
+
+    <div class="auth-card">
+        <div>
+            <span class="eyebrow">Your advisory account</span>
+            <h1>Welcome <em>back.</em></h1>
+            <p class="text-light">Sign in to book and manage your consultations.</p>
+        </div>
+        <div class="auth-tabs" id="authTabs">
+            <button class="auth-tab active" data-target="login">Login</button>
+            <button class="auth-tab" data-target="register">Register</button>
+        </div>
+
+        <div id="login" class="auth-pane active">
+            <form id="loginForm" novalidate>
+                <div class="form-group">
+                    <label for="l_email">Email</label>
+                    <input type="email" id="l_email" required autocomplete="username">
+                    <div class="error-msg" id="err_l_email">Please enter a valid email.</div>
+                </div>
+                <div class="form-group">
+                    <label for="l_password">Password</label>
+                    <input type="password" id="l_password" required autocomplete="current-password">
+                    <div class="error-msg" id="err_l_password">Password is required.</div>
+                </div>
+                <div class="flex justify-between items-center" style="margin: -8px 0 var(--space-4); gap: 12px;">
+                    <label for="l_remember" class="flex items-center gap-2" style="margin: 0; font-weight: 400; font-size: 0.875rem; cursor: pointer;">
+                        <input type="checkbox" id="l_remember"> Remember me
+                    </label>
+                    <a href="#" class="text-sm" id="forgotPassword" style="color: var(--clr-primary); text-decoration: none; font-weight: 500;">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary w-100" style="width: 100%; margin-top: var(--space-2);">Login</button>
+                <div id="login_global_err" class="error-msg text-center mt-2"></div>
+            </form>
+
+            <div class="divider">or</div>
+
+            <button class="social-btn" onclick="alert('Demo placeholder')"><svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg> Continue with Google</button>
+            <button class="social-btn" onclick="alert('Demo placeholder')"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4.5" width="20" height="15" rx="3" fill="#2f4a3f"/><path d="M3.5 7l8.5 6 8.5-6" fill="none" stroke="#b8956a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Continue with Email Link</button>
+
+            <div class="text-center mt-4" style="margin-top: var(--space-4);">
+                <a href="#" class="text-sm switch-tab" data-target="register" style="color: var(--clr-primary); text-decoration: none; font-weight: 500;">New here? Register</a>
+            </div>
+        </div>
+
+        <div id="register" class="auth-pane">
+            <form id="registerForm" novalidate>
+                <div class="form-group">
+                    <label for="r_name">Full Name</label>
+                    <input type="text" id="r_name" required>
+                    <div class="error-msg" id="err_r_name">Please enter your name.</div>
+                </div>
+                <div class="form-group">
+                    <label for="r_email">Email</label>
+                    <input type="email" id="r_email" required>
+                    <div class="error-msg" id="err_r_email">Please enter a valid email.</div>
+                </div>
+                <div class="form-group">
+                    <label for="r_password">Password</label>
+                    <input type="password" id="r_password" required minlength="8">
+                    <div class="error-msg" id="err_r_password">Must be at least 8 characters.</div>
+                </div>
+                <div class="form-group">
+                    <label for="r_confirm">Confirm Password</label>
+                    <input type="password" id="r_confirm" required>
+                    <div class="error-msg" id="err_r_confirm">Passwords must match.</div>
+                </div>
+                <div class="form-group flex items-center" style="gap: var(--space-2);">
+                    <input type="checkbox" id="r_terms" required >
+                    <label for="r_terms" style="margin: 0; font-size: 0.75rem;">I agree to the demo Terms & Conditions</label>
+                </div>
+                <div class="error-msg" id="err_r_terms" style="margin-bottom: var(--space-3);">You must agree to continue.</div>
+                
+                <button type="submit" class="btn btn-primary w-100" style="width: 100%;">Register</button>
+            </form>
+
+            <div class="divider">or</div>
+
+            <button class="social-btn" onclick="alert('Demo placeholder')"><svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg> Continue with Google</button>
+            <button class="social-btn" onclick="alert('Demo placeholder')"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4.5" width="20" height="15" rx="3" fill="#2f4a3f"/><path d="M3.5 7l8.5 6 8.5-6" fill="none" stroke="#b8956a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Sign up with Email Link</button>
+            
+            <div class="text-center mt-4" style="margin-top: var(--space-4);">
+                <a href="#" class="text-sm switch-tab" data-target="login" style="color: var(--clr-primary); text-decoration: none; font-weight: 500;">Have an account? Login</a>
+            </div>
+        </div>
+
+        <div class="secure-badge">
+            <i class="ph ph-lock-key"></i> Secure Connection Demo
+        </div>
+    </div>
+    </div>
+
+    <aside class="auth-visual" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=80" alt="">
+        <div class="auth-quote">
+            <p>“Healthy skin is a long conversation, not a quick fix.”</p>
+            <span>The Veyra approach</span>
+        </div>
+    </aside>
+
+    <!-- Scripts -->
+    <script type="module" src="assets/js/data.js"></script>
+    <script type="module" src="assets/js/auth.js"></script>
+    <script>
+        // Wrap every password field with a show/hide toggle
+        document.querySelectorAll('input[type="password"]').forEach(input => {
+            const wrap = document.createElement('div');
+            wrap.className = 'password-wrapper';
+            input.parentNode.insertBefore(wrap, input);
+            wrap.appendChild(input);
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'password-toggle';
+            btn.setAttribute('aria-label', 'Show password');
+            btn.innerHTML = '<i class="ph ph-eye"></i>';
+            btn.addEventListener('click', () => {
+                const show = input.type === 'password';
+                input.type = show ? 'text' : 'password';
+                btn.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+                btn.innerHTML = `<i class="ph ${show ? 'ph-eye-slash' : 'ph-eye'}"></i>`;
+            });
+            wrap.appendChild(btn);
+        });
+
+        document.getElementById('forgotPassword').addEventListener('click', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('l_email').value.trim();
+            const msg = document.getElementById('login_global_err');
+            msg.style.display = 'block';
+            msg.style.color = 'var(--clr-success)';
+            msg.textContent = email
+                ? `Demo: a reset link would be sent to ${email}.`
+                : 'Enter your email above, then click "Forgot password?" again.';
+        });
+        // Real login errors should stay red
+        document.getElementById('loginForm').addEventListener('submit', () => {
+            document.getElementById('login_global_err').style.color = '';
+        }, true);
+    </script>
+</body>
+</html>

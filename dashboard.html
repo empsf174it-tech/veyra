@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Veyra</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.jpg" type="image/jpeg">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <div class="dash-shell" id="dashShell" style="display: none;">
+        <aside class="dash-sidebar" id="sidebar">
+            <div style="padding: var(--space-4); border-bottom: 1px solid var(--clr-border); display: flex; justify-content: space-between; align-items: center;">
+                <a href="index.html" class="logo logo-on-dark">Veyra<span>.</span> <small class="logo-tag">Admin</small></a>
+                <button class="menu-toggle" id="closeSidebar" style="display: none;">&times;</button>
+            </div>
+            <ul class="dash-nav">
+                <li><a href="#" class="active" data-view="overview"><i class="ph ph-squares-four"></i> Overview</a></li>
+                <li><a href="#" data-view="treatments"><i class="ph ph-sparkle"></i> Treatments</a></li>
+                <li><a href="#" data-view="experts"><i class="ph ph-users"></i> Experts</a></li>
+                <li><a href="#" data-view="appointments"><i class="ph ph-calendar"></i> Appointments</a></li>
+            </ul>
+            <ul class="dash-nav" style="margin-top: auto; border-top: 1px solid rgba(255,255,255,0.08);">
+                <li><a href="index.html" class="dash-logout"><i class="ph ph-sign-out"></i> Logout</a></li>
+            </ul>
+        </aside>
+
+        <main class="dash-main">
+            <header class="dash-header">
+                <div class="flex items-center gap-4">
+                    <button class="menu-toggle" id="openSidebar"><i class="ph ph-list"></i></button>
+                    <h3 id="pageTitle">Overview</h3>
+                </div>
+                <div class="flex items-center gap-4">
+                </div>
+            </header>
+
+            <div class="dash-content">
+                <!-- Overview View -->
+                <div id="view-overview" class="view-panel active">
+                    <div class="welcome-banner">
+                        <div>
+                            <span class="eyebrow" id="welcomeDate"></span>
+                            <h2 id="welcomeGreeting">Welcome back</h2>
+                            <p>Here's what's happening at the clinic today.</p>
+                        </div>
+                        <div class="welcome-actions">
+                            <a href="#" class="btn btn-light" data-goto="appointments"><i class="ph ph-calendar"></i> View appointments</a>
+                            <a href="#" class="btn btn-ghost-light" data-goto="treatments"><i class="ph ph-sparkle"></i> Manage treatments</a>
+                        </div>
+                    </div>
+                    <div class="stat-grid">
+                        <div class="stat-card">
+                            <p class="text-light">Total Appointments</p>
+                            <h3 id="stat-total" class="tabular-nums">0</h3>
+                        </div>
+                        <div class="stat-card">
+                            <p class="text-light">Pending / Confirmed</p>
+                            <h3 id="stat-status" class="tabular-nums">0 / 0</h3>
+                        </div>
+                        <div class="stat-card">
+                            <p class="text-light">Active Treatments</p>
+                            <h3 id="stat-treatments" class="tabular-nums">0</h3>
+                        </div>
+                        <div class="stat-card">
+                            <p class="text-light">Active Experts</p>
+                            <h3 id="stat-experts" class="tabular-nums">0</h3>
+                        </div>
+                    </div>
+
+                    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); margin-top: var(--space-6);">
+                        <div class="card" style="align-items: stretch; text-align: left;">
+                            <h4 class="mb-4">Appointments per Week</h4>
+                            <!-- CSS-based simple bar chart for demo -->
+                            <div class="flex items-end gap-2" style="height: 200px; padding-bottom: 20px; border-bottom: 1px solid var(--clr-border);" id="chartLine">
+                                <!-- Populated by JS -->
+                            </div>
+                            <div class="flex justify-between mt-2 text-sm text-light">
+                                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                            </div>
+                        </div>
+                        <div class="card" style="align-items: stretch; text-align: left;">
+                            <h4 class="mb-4">Appointments by Status</h4>
+                            <div class="flex items-end gap-6 justify-center" style="height: 200px; padding-bottom: 20px; border-bottom: 1px solid var(--clr-border);" id="chartBar">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatments View -->
+                <div id="view-treatments" class="view-panel" style="display: none;">
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="flex gap-2">
+                            <input type="text" id="searchTreatments" placeholder="Search..." style="padding: 6px 12px; width: 200px;">
+                            <select id="filterCategory" style="padding: 6px 12px; width: auto;">
+                                <option value="all">All Categories</option>
+                                <option value="facials">Facials</option>
+                                <option value="peels">Peels</option>
+                                <option value="laser">Laser</option>
+                                <option value="anti-aging">Anti-aging</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" id="addTreatmentBtn"><i class="ph ph-plus"></i> Add Treatment</button>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="treatmentsTable">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Price ($)</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Experts View -->
+                <div id="view-experts" class="view-panel" style="display: none;">
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="flex gap-2">
+                            <input type="text" id="searchExperts" placeholder="Search..." style="padding: 6px 12px; width: 200px;">
+                        </div>
+                        <button class="btn btn-primary" id="addExpertBtn"><i class="ph ph-plus"></i> Add Expert</button>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="expertsTable">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Role</th>
+                                    <th>Fee ($)</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Appointments View -->
+                <div id="view-appointments" class="view-panel" style="display: none;">
+                    <div class="flex justify-between items-center mb-4 flex-wrap gap-4">
+                        <div class="flex gap-2 flex-wrap">
+                            <input type="text" id="searchAppt" placeholder="Search ref/name..." style="padding: 6px 12px; width: 200px;">
+                            <select id="filterApptStatus" style="padding: 6px 12px; width: auto;">
+                                <option value="all">All Statuses</option>
+                                <option value="pending">Pending</option>
+                                <option value="confirmed">Confirmed</option>
+                                <option value="completed">Completed</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="appointmentsTable">
+                            <thead>
+                                <tr>
+                                    <th>Ref</th>
+                                    <th>Client</th>
+                                    <th>Date/Time</th>
+                                    <th>Treatment</th>
+                                    <th>Expert</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Access Denied State -->
+    <div id="accessDenied" style="display: none; height: 100vh; flex-direction: column; align-items: center; justify-content: center; background: var(--clr-bg);">
+        <i class="ph ph-lock-key" style="font-size: 4rem; color: var(--clr-error); margin-bottom: var(--space-4);"></i>
+        <h2>Access Denied</h2>
+        <p class="text-light mt-2 mb-6">You must be logged in as an administrator to view this page.</p>
+        <a href="index.html" class="btn btn-primary">Return Home</a>
+    </div>
+
+    <!-- Modals injected by JS -->
+    <div id="dashboardModals"></div>
+
+    <!-- Scripts -->
+    <script type="module" src="assets/js/data.js"></script>
+    <script type="module" src="assets/js/dashboard.js"></script>
+</body>
+</html>
