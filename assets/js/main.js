@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => revealObserver.observe(el));
 
     // Active Section Highlight
-    const sections = document.querySelectorAll('section[id]');
+    const sections = document.querySelectorAll('section[id], #faq');
     const scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {

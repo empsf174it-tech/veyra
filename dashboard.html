@@ -98,10 +98,13 @@
 
                 <!-- Treatments View -->
                 <div id="view-treatments" class="view-panel" style="display: none;">
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="flex gap-2">
-                            <input type="text" id="searchTreatments" placeholder="Search..." style="padding: 6px 12px; width: 200px;">
-                            <select id="filterCategory" style="padding: 6px 12px; width: auto;">
+                    <div class="dash-toolbar">
+                        <div class="dash-toolbar-controls">
+                            <div class="dash-search-box">
+                                <i class="ph ph-magnifying-glass"></i>
+                                <input type="text" id="searchTreatments" placeholder="Search treatments...">
+                            </div>
+                            <select id="filterCategory" class="dash-select">
                                 <option value="all">All Categories</option>
                                 <option value="facials">Facials</option>
                                 <option value="peels">Peels</option>
@@ -109,7 +112,7 @@
                                 <option value="anti-aging">Anti-aging</option>
                             </select>
                         </div>
-                        <button class="btn btn-primary" id="addTreatmentBtn"><i class="ph ph-plus"></i> Add Treatment</button>
+                        <button class="btn btn-primary dash-action-btn" id="addTreatmentBtn"><i class="ph ph-plus"></i> Add Treatment</button>
                     </div>
                     <div class="table-wrapper">
                         <table id="treatmentsTable">
@@ -129,11 +132,14 @@
 
                 <!-- Experts View -->
                 <div id="view-experts" class="view-panel" style="display: none;">
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="flex gap-2">
-                            <input type="text" id="searchExperts" placeholder="Search..." style="padding: 6px 12px; width: 200px;">
+                    <div class="dash-toolbar">
+                        <div class="dash-toolbar-controls">
+                            <div class="dash-search-box">
+                                <i class="ph ph-magnifying-glass"></i>
+                                <input type="text" id="searchExperts" placeholder="Search experts...">
+                            </div>
                         </div>
-                        <button class="btn btn-primary" id="addExpertBtn"><i class="ph ph-plus"></i> Add Expert</button>
+                        <button class="btn btn-primary dash-action-btn" id="addExpertBtn"><i class="ph ph-plus"></i> Add Expert</button>
                     </div>
                     <div class="table-wrapper">
                         <table id="expertsTable">
@@ -153,10 +159,13 @@
 
                 <!-- Appointments View -->
                 <div id="view-appointments" class="view-panel" style="display: none;">
-                    <div class="flex justify-between items-center mb-4 flex-wrap gap-4">
-                        <div class="flex gap-2 flex-wrap">
-                            <input type="text" id="searchAppt" placeholder="Search ref/name..." style="padding: 6px 12px; width: 200px;">
-                            <select id="filterApptStatus" style="padding: 6px 12px; width: auto;">
+                    <div class="dash-toolbar">
+                        <div class="dash-toolbar-controls">
+                            <div class="dash-search-box">
+                                <i class="ph ph-magnifying-glass"></i>
+                                <input type="text" id="searchAppt" placeholder="Search ref or client...">
+                            </div>
+                            <select id="filterApptStatus" class="dash-select">
                                 <option value="all">All Statuses</option>
                                 <option value="pending">Pending</option>
                                 <option value="confirmed">Confirmed</option>

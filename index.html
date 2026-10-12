@@ -69,6 +69,7 @@
                         </div>
                     </li>
                     <li><a href="#experts">Experts</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="dashboard.html">Dashboard</a></li>
                     <li class="mobile-only mobile-login"><a href="auth.html" class="btn btn-primary">Login <i class="ph ph-arrow-right"></i></a></li>
@@ -549,55 +550,11 @@
             </div>
         </section>
 
-        <!-- 11. FAQ -->
-        <section id="faq" class="section-alt" aria-labelledby="faq-heading">
-            <div class="container reveal">
-                <div class="section-header">
-                    <span class="eyebrow">FAQ</span>
-                    <h2 id="faq-heading">Questions, <em>answered</em></h2>
-                </div>
-
-                <div class="faq-list">
-                    <div class="accordion-item">
-                        <button class="accordion-header" aria-expanded="false">What should I expect during my first visit?</button>
-                        <div class="accordion-content">
-                            <div class="accordion-content-inner">
-                                Your first visit includes a comprehensive skin assessment, medical history review, and a discussion of your goals. We may perform a patch test depending on the planned treatment.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header" aria-expanded="false">Are treatments safe during pregnancy?</button>
-                        <div class="accordion-content">
-                            <div class="accordion-content-inner">
-                                Many treatments are contraindicated during pregnancy. Always ask your clinician. We offer a modified, pregnancy-safe facial line.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header" aria-expanded="false">How does pricing and cancellation work?</button>
-                        <div class="accordion-content">
-                            <div class="accordion-content-inner">
-                                Prices listed are demo placeholders. A 24-hour notice is required for cancellations to avoid a fee.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header" aria-expanded="false">How do demo accounts work here?</button>
-                        <div class="accordion-content">
-                            <div class="accordion-content-inner">
-                                This is a demo application. Data is stored in your browser's localStorage. Do not use real passwords or enter real personal medical information.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 12. Contact / CTA -->
-        <section id="contact" aria-labelledby="contact-heading">
-            <div class="container reveal">
-                <div class="cta-band">
+        <!-- 11. Contact & FAQ -->
+        <section id="contact" class="section-contact" aria-labelledby="contact-heading">
+            <div class="container">
+                <!-- Contact CTA Band -->
+                <div class="cta-band reveal">
                     <div class="cta-grid">
                         <div>
                             <span class="eyebrow">Get in touch</span>
@@ -648,6 +605,82 @@
                         <iframe title="Veyra clinic location map (demo)" src="https://www.openstreetmap.org/export/embed.html?bbox=-74.0135%2C40.7020%2C-73.9935%2C40.7160&amp;layer=mapnik&amp;marker=40.7090%2C-74.0035" loading="lazy"></iframe>
                     </div>
                 </div>
+
+                <!-- FAQ in Contact -->
+                <div id="faq" class="contact-faq reveal">
+                    <div class="section-header text-center">
+                        <span class="eyebrow">FAQ</span>
+                        <h2 id="faq-heading">Frequently Asked <em>Questions</em></h2>
+                        <p class="text-light" style="max-width: 580px; margin: 12px auto 0;">Have a question before scheduling or sending a message? Here are quick answers to our most common inquiries.</p>
+                    </div>
+
+                    <div class="faq-list">
+                        <div class="accordion-item active">
+                            <button class="accordion-header" aria-expanded="true">What should I expect during my first consultation?</button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    Your first consultation includes a thorough 1-on-1 skin diagnostic assessment, a comprehensive review of your dermatological history and current regimen, and a realistic treatment plan tailored specifically to your skin goals. If appropriate, a patch test is conducted before any active clinical treatment.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false">How quickly does your clinical team respond to online inquiries?</button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    Our patient coordination team responds to all online inquiries within 24 business hours. If you require immediate scheduling or want to reserve a specific slot, you can book directly online using our live <a href="#booking" style="color: var(--clr-primary); text-decoration: underline; font-weight: 500;">consultation calendar</a>.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false">Do I need a GP or medical referral to book an appointment?</button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    No GP referral is required. All our consultations are conducted by licensed dermatologists, aesthetic nurses, and clinical dermal therapists who will thoroughly assess your skin health and treatment candidacy in-house.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false">What is your cancellation and rescheduling policy?</button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    We kindly request at least 24 hours' notice for cancellations or appointment rescheduling so we can offer the appointment to waitlisted patients. In this interactive demo, you can modify or cancel appointments anytime via the admin dashboard without fees.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false">Are clinical treatments safe during pregnancy or breastfeeding?</button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    Certain medical treatments (such as chemical peels containing high-strength retinoids or salicylic acid, deep laser resurfacing, and radiofrequency) are contraindicated during pregnancy. However, we provide specialized pregnancy-safe barrier repair protocols and soothing enzyme facials. Always inform your clinician before treatment.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false">Can I consult with an expert virtually before visiting?</button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    Yes! We offer 20-minute virtual video consultations for initial skin assessments, aftercare follow-ups, and routine guidance before booking your in-clinic treatment.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false">Is there parking and accessible entry at the clinic location?</button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    Yes, validated patient parking is available directly under 123 Clinic Way. Step-free accessible entry and elevator access are located on the Ground Level, bringing you directly to our Suite 400 reception.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false">How do demo accounts and bookings work on this website?</button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    Veyra is an interactive clinical hub demo. All bookings, client data, and custom edits are stored locally in your browser storage (localStorage). No real financial transactions take place, and no confidential medical records should be entered.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -680,6 +713,8 @@
                         <li><a href="#services">Services</a></li>
                         <li><a href="#treatments">Treatments</a></li>
                         <li><a href="#experts">Experts</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
